@@ -1,25 +1,52 @@
 class Point {
-  x: number;
-  y: number;
-
-
-
-  draw() {
-    console.log('X: ' + this.x + ' Y: ' + this.y);
+  constructor(private x?:number, private y?:number) {
   }
 
-  getDistance(another: Point) {
-    // ...
+  draw() {
+    console.log('X: ' + this.x + ', Y: ' + this.y);
   }
 }
 
-
 let point = new Point(1, 2);
-// let point: Point = new Point();
-// let point = new Point();   //  without Constructor
-// point.x = 1;
-// point.y = 2;
 point.draw();
+
+// class Point {
+//   // _x: number;
+//   // _y: number;
+//
+//   constructor(_x?: number, _y?: number) {   // ? makes parameters optional
+//     this._x = _x;
+//     this._y = _y;
+//   }
+//
+//   draw() {
+//     console.log('X: ' + this._x + ' Y: ' + this._y);
+//   }
+//
+//   get x() {
+//     return this._x;
+//   }
+//
+//   set x() {
+//
+//   }
+//
+//   getDistance(another: Point) {
+//     // ...
+//   }
+// }
+//
+//
+// let point = new Point(1, 2);
+// // let point: Point = new Point();
+// // let point = new Point();   //  without Constructor
+// // point._x = 1;
+// // point._y = 2;
+// let x = point.x;
+// point.x = 10;
+// point.draw();
+
+
 
 // let message;
 // message = 'abc';
