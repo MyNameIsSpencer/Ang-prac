@@ -9,65 +9,63 @@
     <div class="form-group">
       <div class="col-md-12">
         <label for="username" class="control-label required">Username</label>
-        <input type="text" class="form-control" autocomplete="off">
+        <input type="text" class="form-control" formControlName="username" autocomplete="off">
       </div>
     </div>
     <div class="form-group">
       <div class="col-md-12">
         <label for="fullname" class="control-label required">Fullname</label>
-        <input type="text" class="form-control" autocomplete="off">
+        <input type="text" class="form-control" formControlName="fullname" autocomplete="off">
       </div>
     </div>
     <div class="form-group">
       <div class="col-md-12">
         <label for="email" class="control-label required">Email</label>
         <!-- <input type="email" class="form-control"> <<<  could make type email, but leave as text -->
-        <input type="text" class="form-control" autocomplete="off">
+        <input type="text" class="form-control" formControlName="email" autocomplete="off">
       </div>
     </div>
     <div class="form-group">
       <div class="col-md-12">
         <label for="password" class="control-label required">Password</label>
-        <input type="password" class="form-control" autocomplete="off">
+        <input type="password" class="form-control" formControlName="password" autocomplete="off">
       </div>
     </div>
     <div class="form-group">
       <div class="col-md-12">
         <label for="cpassword" class="control-label required">Confirm Password</label>
-        <input type="password" class="form-control" autocomplete="off">
+        <input type="password" class="form-control" formControlName="cpassword" autocomplete="off">
       </div>
     </div>
 
-    <div>
+    <div formGroupName="address">
       <div class="form-group addressLabel">
         <div class="col-md-6">
           <label for="address1" class="control-label required">Address 1</label>
-          <input type="text" class="form-control" autocomplete="off">
+          <input type="text" class="form-control" formControlName="address1" autocomplete="off">
         </div>
         <div class="col-md-3">
           <label for="address2" class="control-label">Address 2</label>
-          <input type="text" class="form-control" autocomplete="off">
+          <input type="text" class="form-control" formControlName="address2" autocomplete="off">
         </div>
         <div class="col-md-3">
           <label for="zipcode" class="control-label required">Zip Code</label>
-          <input type="text" class="form-control" autocomplete="off">
+          <input type="text" class="form-control" formControlName="zipcode" autocomplete="off">
         </div>
       </div>
-    </div>
 
-    <div>
       <div class="form-group addressLabel">
         <div class="col-md-6">
           <label for="city" class="control-label required">City</label>
-          <input type="text" class="form-control" autocomplete="off">
+          <input type="text" class="form-control" formControlName="city" autocomplete="off">
         </div>
         <div class="col-md-3">
           <label for="state" class="control-label required">State</label>
-          <input type="text" class="form-control" autocomplete="off">
+          <input type="text" class="form-control" formControlName="state" autocomplete="off">
         </div>
         <div class="col-md-3">
           <label for="country" class="control-label required">Country</label>
-          <input type="text" class="form-control" autocomplete="off">
+          <input type="text" class="form-control" formControlName="country" autocomplete="off">
         </div>
       </div>
     </div>
