@@ -1,20 +1,80 @@
-<!--The content below is only a placeholder and can be replaced.-->
-<div style="text-align:center">
-  <h1>
-    Welcome to {{ title }}!
-  </h1>
-  <img width="300" alt="Angular Logo" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTAgMjUwIj4KICAgIDxwYXRoIGZpbGw9IiNERDAwMzEiIGQ9Ik0xMjUgMzBMMzEuOSA2My4ybDE0LjIgMTIzLjFMMTI1IDIzMGw3OC45LTQzLjcgMTQuMi0xMjMuMXoiIC8+CiAgICA8cGF0aCBmaWxsPSIjQzMwMDJGIiBkPSJNMTI1IDMwdjIyLjItLjFWMjMwbDc4LjktNDMuNyAxNC4yLTEyMy4xTDEyNSAzMHoiIC8+CiAgICA8cGF0aCAgZmlsbD0iI0ZGRkZGRiIgZD0iTTEyNSA1Mi4xTDY2LjggMTgyLjZoMjEuN2wxMS43LTI5LjJoNDkuNGwxMS43IDI5LjJIMTgzTDEyNSA1Mi4xem0xNyA4My4zaC0zNGwxNy00MC45IDE3IDQwLjl6IiAvPgogIDwvc3ZnPg==">
-</div>
-<h2>Here are some links to help you start: </h2>
-<ul>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://angular.io/tutorial">Tour of Heroes</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://angular.io/cli">CLI Documentation</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://blog.angular.io/">Angular blog</a></h2>
-  </li>
-</ul>
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <h2 class="text-center">Angular Form Validation Nation</h2>
+    </div>
+  </div>
 
+  <form class="form-horizontal" [formGroup]="contactForm">
+    <div class="form-group">
+      <div class="col-md-12">
+        <label for="username" class="control-label required">Username</label>
+        <input type="text" class="form-control" autocomplete="off">
+      </div>
+    </div>
+    <div class="form-group">
+      <div class="col-md-12">
+        <label for="fullname" class="control-label required">Fullname</label>
+        <input type="text" class="form-control" autocomplete="off">
+      </div>
+    </div>
+    <div class="form-group">
+      <div class="col-md-12">
+        <label for="email" class="control-label required">Email</label>
+        <!-- <input type="email" class="form-control"> <<<  could make type email, but leave as text -->
+        <input type="text" class="form-control" autocomplete="off">
+      </div>
+    </div>
+    <div class="form-group">
+      <div class="col-md-12">
+        <label for="password" class="control-label required">Password</label>
+        <input type="password" class="form-control" autocomplete="off">
+      </div>
+    </div>
+    <div class="form-group">
+      <div class="col-md-12">
+        <label for="cpassword" class="control-label required">Confirm Password</label>
+        <input type="password" class="form-control" autocomplete="off">
+      </div>
+    </div>
+
+    <div>
+      <div class="form-group addressLabel">
+        <div class="col-md-6">
+          <label for="address1" class="control-label required">Address 1</label>
+          <input type="text" class="form-control" autocomplete="off">
+        </div>
+        <div class="col-md-3">
+          <label for="address2" class="control-label">Address 2</label>
+          <input type="text" class="form-control" autocomplete="off">
+        </div>
+        <div class="col-md-3">
+          <label for="zipcode" class="control-label required">Zip Code</label>
+          <input type="text" class="form-control" autocomplete="off">
+        </div>
+      </div>
+    </div>
+
+    <div>
+      <div class="form-group addressLabel">
+        <div class="col-md-6">
+          <label for="city" class="control-label required">City</label>
+          <input type="text" class="form-control" autocomplete="off">
+        </div>
+        <div class="col-md-3">
+          <label for="state" class="control-label required">State</label>
+          <input type="text" class="form-control" autocomplete="off">
+        </div>
+        <div class="col-md-3">
+          <label for="country" class="control-label required">Country</label>
+          <input type="text" class="form-control" autocomplete="off">
+        </div>
+      </div>
+    </div>
+
+    <button class="btn btn-primary" name="button">Submit</button>
+    <button class="btn btn-danger" name="button">Reset</button>
+
+  </form>
+
+</div>
