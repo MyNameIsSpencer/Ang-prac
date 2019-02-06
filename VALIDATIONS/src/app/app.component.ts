@@ -6,7 +6,7 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent implements ngOnInit {
+export class AppComponent implements OnInit {
   contactForm: FormGroup;
 
   constructor(private formBuilder: FormBuilder) {}
@@ -19,10 +19,10 @@ export class AppComponent implements ngOnInit {
     this.contactForm = this.formBuilder.group({
       username: [
         '',
-        [Validators.required, Validators.minLength(5), Validators.maxlength(10)]
+        [Validators.required, Validators.minLength(5), Validators.maxLength(10)]
       ],
       fullname: ['', Validators.required],
-      email: ['', Validators.required],
+      email: ['', [Validators.required, Validators.email]],
       password: ['', Validators.required],
       cpassword: ['', Validators.required],
       address: this.formBuilder.group({
@@ -34,5 +34,8 @@ export class AppComponent implements ngOnInit {
         country: ['', Validators.required]
       })
     });
+  }
+  onSubmit() {
+    console.log(this.contactForm);
   }
 }

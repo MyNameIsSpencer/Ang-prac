@@ -5,17 +5,29 @@
     </div>
   </div>
 
-  <form class="form-horizontal" [formGroup]="contactForm">
+  <form class="form-horizontal" [formGroup]="contactForm" (ngSubmit)="onSubmit()">
     <div class="form-group">
       <div class="col-md-12">
         <label for="username" class="control-label required">Username</label>
         <input type="text" class="form-control" formControlName="username" autocomplete="off">
+        <div class="error" *ngIf="contactForm.controls['username'].errors?.required && contactForm.cotrols['username'].touched">
+          Username required son
+        </div>
+        <div class="error" *ngIf="contactForm.controls['username'].errors?.minlength">
+          Minimum length is 5 Characters
+        </div>
+        <div class="error" *ngIf="contactForm.controls['username'].errors?.maxlength">
+          Maximum length is 10 Characters
+        </div>
       </div>
     </div>
     <div class="form-group">
       <div class="col-md-12">
         <label for="fullname" class="control-label required">Fullname</label>
         <input type="text" class="form-control" formControlName="fullname" autocomplete="off">
+        <div class="error" *ngIf="contactForm.controls['fullname'].errors?.required && contactForm.controls['fullname'].touched">
+          Full Name is Required!!!!!
+        </div>
       </div>
     </div>
     <div class="form-group">
@@ -23,6 +35,12 @@
         <label for="email" class="control-label required">Email</label>
         <!-- <input type="email" class="form-control"> <<<  could make type email, but leave as text -->
         <input type="text" class="form-control" formControlName="email" autocomplete="off">
+        <div class="error" *ngIf="contactForm.controls['email'].errors?.required && contactForm.controls['email'].touched">
+           We require an email to send you spam
+        </div>
+        <div class="error" *ngIf="contactForm.controls['email'].errors?.email">
+           We need a valid email to send you spam
+        </div>
       </div>
     </div>
     <div class="form-group">
@@ -43,6 +61,9 @@
         <div class="col-md-6">
           <label for="address1" class="control-label required">Address 1</label>
           <input type="text" class="form-control" formControlName="address1" autocomplete="off">
+          <div class="error" *ngIf="contactForm.get('address').get('address1').errors && contactForm.get('address').get('address1').touched">
+            You need at least 1 address
+          </div>
         </div>
         <div class="col-md-3">
           <label for="address2" class="control-label">Address 2</label>
@@ -51,6 +72,9 @@
         <div class="col-md-3">
           <label for="zipcode" class="control-label required">Zip Code</label>
           <input type="text" class="form-control" formControlName="zipcode" autocomplete="off">
+          <div class="error" *ngIf="contactForm.get('address').get('zipcode').errors && contactForm.get('address').get('zipcode').touched">
+            Zipcode Required
+          </div>
         </div>
       </div>
 
@@ -58,14 +82,23 @@
         <div class="col-md-6">
           <label for="city" class="control-label required">City</label>
           <input type="text" class="form-control" formControlName="city" autocomplete="off">
+          <div class="error" *ngIf="contactForm.get('address').get('city').errors && contactForm.get('address').get('city').touched">
+            Don't you want to share the city you live in?
+          </div>
         </div>
         <div class="col-md-3">
           <label for="state" class="control-label required">State</label>
           <input type="text" class="form-control" formControlName="state" autocomplete="off">
+          <div class="error" *ngIf="contactForm.get('address').get('state').errors && contactForm.get('address').get('state').touched">
+            Auh come on, what state are you in?
+          </div>
         </div>
         <div class="col-md-3">
           <label for="country" class="control-label required">Country</label>
           <input type="text" class="form-control" formControlName="country" autocomplete="off">
+          <div class="error" *ngIf="contactForm.get('address').get('country').errors && contactForm.get('address').get('country').touched">
+            We need your country
+          </div>
         </div>
       </div>
     </div>
