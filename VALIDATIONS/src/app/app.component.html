@@ -46,16 +46,36 @@
     <div class="form-group">
       <div class="col-md-12">
         <label for="password" class="control-label required">Password</label>
-        <input type="password" class="form-control" formControlName="password" autocomplete="off">
+        <input type="text" class="form-control" formControlName="password" autocomplete="off">
+        <div class="error" *ngIf="contactForm.controls['password'].errors?.required && contactForm.controls['password'].touched">
+          You need a Password
+        </div>
+        <div class="error" *ngIf="contactForm.controls['password'].errors?.minlength">
+          Not enough Password, min 6
+        </div>
+        <div class="error" *ngIf="contactForm.controls['password'].errors?.pattern">
+          Password must contain at least 1 uppercase, lowercase, number and special character ($@^$#&!%*?&)
+        </div>
       </div>
     </div>
     <div class="form-group">
       <div class="col-md-12">
         <label for="cpassword" class="control-label required">Confirm Password</label>
-        <input type="password" class="form-control" formControlName="cpassword" autocomplete="off">
+        <input type="text" class="form-control" formControlName="cpassword" autocomplete="off">
+        <div class="error" *ngIf="contactForm.controls['cpassword'].errors?.required && contactForm.controls['cpassword'].touched">
+          Please confirm password
+        </div>
+        <div class="error" *ngIf="contactForm.error">
+          Confirm Password does not match Password
+        </div>
+        <!-- <div class="error" *ngIf="contactForm.controls['cpassword'].errors?.required && contactForm.controls['cpassword'].touched">
+          Passwords must match friend
+        </div> -->
       </div>
     </div>
 
+<!-- contactForm.get('address').get    to access address group -->
+<!-- OR>>>>  contactForm.controls['address'].contactForm.controls['attr'] -->
     <div formGroupName="address">
       <div class="form-group addressLabel">
         <div class="col-md-6">
@@ -72,8 +92,11 @@
         <div class="col-md-3">
           <label for="zipcode" class="control-label required">Zip Code</label>
           <input type="text" class="form-control" formControlName="zipcode" autocomplete="off">
-          <div class="error" *ngIf="contactForm.get('address').get('zipcode').errors && contactForm.get('address').get('zipcode').touched">
+          <div class="error" *ngIf="contactForm.controls['address'].contactForm.controls['zipcode'].errors?.required && contactForm.controls['address'].contactForm.controls['zipcode']touched">
             Zipcode Required
+          </div>
+          <div class="error" *ngIf="contactForm.controls['address'].contactForm.controls['zipcode'].errors?.pattern">
+            Zipcode is Invalid, must contain only 4 - 6 numbers
           </div>
         </div>
       </div>
