@@ -25,3 +25,7 @@
 .error {
   color: red;
 }
+
+.has-error {
+  border: 2px solid red;
+}

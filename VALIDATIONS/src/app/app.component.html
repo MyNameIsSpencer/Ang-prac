@@ -9,7 +9,8 @@
     <div class="form-group">
       <div class="col-md-12">
         <label for="username" class="control-label required">Username</label>
-        <input type="text" class="form-control" formControlName="username" autocomplete="off">
+        <input type="text" class="form-control" formControlName="username" autocomplete="off"
+        [class.has-error]="contactForm.controls['username'].invalid && contactForm.controls['username'].touched">
         <div class="error" *ngIf="contactForm.controls['username'].errors?.required && contactForm.cotrols['username'].touched">
           Username required son
         </div>
@@ -24,7 +25,8 @@
     <div class="form-group">
       <div class="col-md-12">
         <label for="fullname" class="control-label required">Fullname</label>
-        <input type="text" class="form-control" formControlName="fullname" autocomplete="off">
+        <input type="text" class="form-control" formControlName="fullname" autocomplete="off"
+        [class.has-error]="contactForm.controls['fullname'].invalid && contactForm.controls['fullname'].touched">
         <div class="error" *ngIf="contactForm.controls['fullname'].errors?.required && contactForm.controls['fullname'].touched">
           Full Name is Required!!!!!
         </div>
@@ -34,7 +36,8 @@
       <div class="col-md-12">
         <label for="email" class="control-label required">Email</label>
         <!-- <input type="email" class="form-control"> <<<  could make type email, but leave as text -->
-        <input type="text" class="form-control" formControlName="email" autocomplete="off">
+        <input type="text" class="form-control" formControlName="email" autocomplete="off"
+        [class.has-error]="contactForm.controls['email'].invalid && contactForm.controls['email'].touched">
         <div class="error" *ngIf="contactForm.controls['email'].errors?.required && contactForm.controls['email'].touched">
            We require an email to send you spam
         </div>
@@ -46,7 +49,8 @@
     <div class="form-group">
       <div class="col-md-12">
         <label for="password" class="control-label required">Password</label>
-        <input type="text" class="form-control" formControlName="password" autocomplete="off">
+        <input type="text" class="form-control" formControlName="password" autocomplete="off"
+        [class.has-error]="contactForm.controls['password'].invalid && contactForm.controls['password'].touched">
         <div class="error" *ngIf="contactForm.controls['password'].errors?.required && contactForm.controls['password'].touched">
           You need a Password
         </div>
@@ -61,7 +65,8 @@
     <div class="form-group">
       <div class="col-md-12">
         <label for="cpassword" class="control-label required">Confirm Password</label>
-        <input type="text" class="form-control" formControlName="cpassword" autocomplete="off">
+        <input type="text" class="form-control" formControlName="cpassword" autocomplete="off"
+        [class.has-error]="contactForm.controls['cpassword'].invalid && contactForm.controls['cpassword'].touched">
         <div class="error" *ngIf="contactForm.controls['cpassword'].errors?.required && contactForm.controls['cpassword'].touched">
           Please confirm password
         </div>
@@ -80,18 +85,21 @@
       <div class="form-group addressLabel">
         <div class="col-md-6">
           <label for="address1" class="control-label required">Address 1</label>
-          <input type="text" class="form-control" formControlName="address1" autocomplete="off">
+          <input type="text" class="form-control" formControlName="address1" autocomplete="off"
+          [class.has-error]="contactForm.get('address').get('address1').errors && contactForm.get('address').get('address1').touched">
           <div class="error" *ngIf="contactForm.get('address').get('address1').errors && contactForm.get('address').get('address1').touched">
             You need at least 1 address
           </div>
         </div>
         <div class="col-md-3">
           <label for="address2" class="control-label">Address 2</label>
-          <input type="text" class="form-control" formControlName="address2" autocomplete="off">
+          <input type="text" class="form-control" formControlName="address2" autocomplete="off"
+            [class.has-error]="contactForm.get('address').get('address2').errors && contactForm.get('address').get('address2').touched">
         </div>
         <div class="col-md-3">
           <label for="zipcode" class="control-label required">Zip Code</label>
-          <input type="text" class="form-control" formControlName="zipcode" autocomplete="off">
+          <input type="text" class="form-control" formControlName="zipcode" autocomplete="off"
+          [class.has-error]="contactForm.get('address').get('zipcode').errors && contactForm.get('address').get('zipcode').touched">
           <div class="error" *ngIf="contactForm.controls['address'].contactForm.controls['zipcode'].errors?.required && contactForm.controls['address'].contactForm.controls['zipcode']touched">
             Zipcode Required
           </div>
@@ -104,21 +112,24 @@
       <div class="form-group addressLabel">
         <div class="col-md-6">
           <label for="city" class="control-label required">City</label>
-          <input type="text" class="form-control" formControlName="city" autocomplete="off">
+          <input type="text" class="form-control" formControlName="city" autocomplete="off"
+          [class.has-error]="contactForm.get('address').get('city').errors && contactForm.get('address').get('city').touched">
           <div class="error" *ngIf="contactForm.get('address').get('city').errors && contactForm.get('address').get('city').touched">
             Don't you want to share the city you live in?
           </div>
         </div>
         <div class="col-md-3">
           <label for="state" class="control-label required">State</label>
-          <input type="text" class="form-control" formControlName="state" autocomplete="off">
+          <input type="text" class="form-control" formControlName="state" autocomplete="off"
+          [class.has-error]="contactForm.get('address').get('state').errors && contactForm.get('address').get('state').touched">
           <div class="error" *ngIf="contactForm.get('address').get('state').errors && contactForm.get('address').get('state').touched">
             Auh come on, what state are you in?
           </div>
         </div>
         <div class="col-md-3">
           <label for="country" class="control-label required">Country</label>
-          <input type="text" class="form-control" formControlName="country" autocomplete="off">
+          <input type="text" class="form-control" formControlName="country" autocomplete="off"
+          [class.has-error]="contactForm.get('address').get('country').errors && contactForm.get('address').get('country').touched">
           <div class="error" *ngIf="contactForm.get('address').get('country').errors && contactForm.get('address').get('country').touched">
             We need your country
           </div>
