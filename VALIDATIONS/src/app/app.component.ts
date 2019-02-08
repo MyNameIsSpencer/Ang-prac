@@ -12,10 +12,10 @@ export class AppComponent implements OnInit {
   constructor(private formBuilder: FormBuilder) {}
 
   ngOnInit() {
-    this.initForm();
+    this.InitForm();
   }
 //  all address inputs are grouped
-  initForm() {
+  InitForm() {
     this.contactForm = this.formBuilder.group({
       username: [
         '',
@@ -41,7 +41,7 @@ export class AppComponent implements OnInit {
     console.log(this.contactForm);
   }
 
-  ConfrimPassword(pwdFormGroup: FormGroup) {
+  ConfirmPassword(pwdFormGroup: FormGroup) {
     // const pwd = pwdFormGroup.controls['pass']
     const pwd = pwdFormGroup.controls.password.value;
     const cpwd = pwdFormGroup.controls.cpassword.value;
@@ -52,11 +52,15 @@ export class AppComponent implements OnInit {
 
     if (pwd !== cpwd) {
       return {
-        doesNotMatch: true;
+        doesNotMatch: true
       };
     }
 
     return null;
+  }
+
+  resetForm() {
+    this.contactForm.reset();
   }
 }
 

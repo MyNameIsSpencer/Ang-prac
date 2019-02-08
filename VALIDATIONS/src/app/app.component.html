@@ -10,8 +10,9 @@
       <div class="col-md-12">
         <label for="username" class="control-label required">Username</label>
         <input type="text" class="form-control" formControlName="username" autocomplete="off"
-        [class.has-error]="contactForm.controls['username'].invalid && contactForm.controls['username'].touched">
-        <div class="error" *ngIf="contactForm.controls['username'].errors?.required && contactForm.cotrols['username'].touched">
+          [class.has-error]="contactForm.controls['username'].invalid && contactForm.controls['username'].touched"
+          [class.no-error]="contactForm.controls['username'].valid">
+        <div class="error" *ngIf="contactForm.controls['username'].errors?.required && contactForm.controls['username'].touched">
           Username required son
         </div>
         <div class="error" *ngIf="contactForm.controls['username'].errors?.minlength">
@@ -25,7 +26,7 @@
     <div class="form-group">
       <div class="col-md-12">
         <label for="fullname" class="control-label required">Fullname</label>
-        <input type="text" class="form-control" formControlName="fullname" autocomplete="off"
+        <input type="text" id="fullname" class="form-control" formControlName="fullname" autocomplete="off"
         [class.has-error]="contactForm.controls['fullname'].invalid && contactForm.controls['fullname'].touched">
         <div class="error" *ngIf="contactForm.controls['fullname'].errors?.required && contactForm.controls['fullname'].touched">
           Full Name is Required!!!!!
@@ -99,11 +100,13 @@
         <div class="col-md-3">
           <label for="zipcode" class="control-label required">Zip Code</label>
           <input type="text" class="form-control" formControlName="zipcode" autocomplete="off"
-          [class.has-error]="contactForm.get('address').get('zipcode').errors && contactForm.get('address').get('zipcode').touched">
-          <div class="error" *ngIf="contactForm.controls['address'].contactForm.controls['zipcode'].errors?.required && contactForm.controls['address'].contactForm.controls['zipcode']touched">
+            [class.no-error]="contactForm.controls['address'].controls['zipcode'].valid"
+            [class.has-error]="contactForm.get('address').get('zipcode').errors && contactForm.get('address').get('zipcode').touched">
+          <div class="error" *ngIf="contactForm.controls['address'].controls['zipcode'].errors?.required && contactForm.controls['address'].controls['zipcode'].touched">
             Zipcode Required
           </div>
-          <div class="error" *ngIf="contactForm.controls['address'].contactForm.controls['zipcode'].errors?.pattern">
+
+          <div class="error" *ngIf="contactForm.controls['address'].controls['zipcode'].errors?.required && contactForm.controls['address'].controls['zipcode'].touched">
             Zipcode is Invalid, must contain only 4 - 6 numbers
           </div>
         </div>
@@ -138,7 +141,7 @@
     </div>
 
     <button class="btn btn-primary" name="button">Submit</button>
-    <button class="btn btn-danger" name="button">Reset</button>
+    <button class="btn btn-danger" (click)="resetForm()" name="imma-button">Reset</button>
 
   </form>
 

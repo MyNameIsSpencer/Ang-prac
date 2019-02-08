@@ -29,3 +29,7 @@
 .has-error {
   border: 2px solid red;
 }
+
+.no-error {
+  border: 2px solid green;
+}
