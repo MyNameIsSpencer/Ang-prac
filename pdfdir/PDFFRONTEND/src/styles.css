@@ -1,1 +1,4 @@
+/* don't need bootstrap ng */
+
 @import '~bootstrap/dist/css/bootstrap.css';
+@import 'https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css';
