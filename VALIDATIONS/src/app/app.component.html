@@ -27,7 +27,8 @@
       <div class="col-md-12">
         <label for="fullname" class="control-label required">Fullname</label>
         <input type="text" id="fullname" class="form-control" formControlName="fullname" autocomplete="off"
-        [class.has-error]="contactForm.controls['fullname'].invalid && contactForm.controls['fullname'].touched">
+        [class.has-error]="contactForm.controls['fullname'].invalid && contactForm.controls['fullname'].touched"
+        [class.no-error]="contactForm.controls['fullname'].valid">
         <div class="error" *ngIf="contactForm.controls['fullname'].errors?.required && contactForm.controls['fullname'].touched">
           Full Name is Required!!!!!
         </div>
@@ -38,7 +39,8 @@
         <label for="email" class="control-label required">Email</label>
         <!-- <input type="email" class="form-control"> <<<  could make type email, but leave as text -->
         <input type="text" class="form-control" formControlName="email" autocomplete="off"
-        [class.has-error]="contactForm.controls['email'].invalid && contactForm.controls['email'].touched">
+        [class.has-error]="contactForm.controls['email'].invalid && contactForm.controls['email'].touched"
+        [class.no-error]="contactForm.controls['email'].valid">
         <div class="error" *ngIf="contactForm.controls['email'].errors?.required && contactForm.controls['email'].touched">
            We require an email to send you spam
         </div>
@@ -51,7 +53,8 @@
       <div class="col-md-12">
         <label for="password" class="control-label required">Password</label>
         <input type="text" class="form-control" formControlName="password" autocomplete="off"
-        [class.has-error]="contactForm.controls['password'].invalid && contactForm.controls['password'].touched">
+        [class.has-error]="contactForm.controls['password'].invalid && contactForm.controls['password'].touched"
+        [class.no-error]="contactForm.controls['password'].valid">
         <div class="error" *ngIf="contactForm.controls['password'].errors?.required && contactForm.controls['password'].touched">
           You need a Password
         </div>
@@ -67,7 +70,8 @@
       <div class="col-md-12">
         <label for="cpassword" class="control-label required">Confirm Password</label>
         <input type="text" class="form-control" formControlName="cpassword" autocomplete="off"
-        [class.has-error]="contactForm.controls['cpassword'].invalid && contactForm.controls['cpassword'].touched">
+        [class.has-error]="contactForm.controls['cpassword'].invalid && contactForm.controls['cpassword'].touched"
+        [class.no-error]="contactForm.controls['cpassword'].valid">
         <div class="error" *ngIf="contactForm.controls['cpassword'].errors?.required && contactForm.controls['cpassword'].touched">
           Please confirm password
         </div>
