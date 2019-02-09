@@ -19,14 +19,8 @@ const routes: Routes = [
 
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    HomeComponent
-  ],
-  imports: [
-    BrowserModule,
-    RouterModule.forRoot(routes)
-  ],
+  declarations: [ AppComponent, HomeComponent ],
+  imports: [ BrowserModule, RouterModule.forRoot(routes), FileUploadModule ],
   exports: [RouterModule],
   providers: [],
   bootstrap: [AppComponent]
