@@ -25,10 +25,7 @@
                                 <div class="k-upload-button btn btn-lg btn-primary">
 
 
-
                                     <input type="file" id="clientUpload" autocomplete="off">
-
-
 
 
                                     <div class="k-upload-button-icon">
@@ -46,7 +43,7 @@
         </div>
 
 
-        <div class="row">
+        <div class="row" *ngIf="fileTypeError">
             <div class="col">
                 <div class="alert alert-danger">
         					<h3 class="text-center">
@@ -56,7 +53,7 @@
             </div>
         </div>
 
-        <div class="row">
+        <div class="row" *ngIf="!fileTypeError">
             <div class="col">
                 <div class="loading">
                     <span class="loader"></span>

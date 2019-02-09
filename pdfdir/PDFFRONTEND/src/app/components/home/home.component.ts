@@ -21,7 +21,23 @@ export class HomeComponent implements OnInit {
   ngOnInit() {}
 
   OnFileSelected(event) {
+    const file: File = event[0];
+    this.fileName = file.name;
 
+    const fileCheck = this.fileName.toLowerCase();
+    //  VVV regexp
+    if (!fileCheck.match(/(\.docx|\.doc|\.rtf)$/)) {
+      this.fileTypeError = true;
+      return;
+    } else {
+      this.fileTypeError = false;
+    }
+
+    this.ReadAsBase64(file)
+      .then(result => {
+        console.log(result);
+      })
+      .catch(err => console.log(err));
   }
 
   ReadAsBase64(file): Promise<any>{
@@ -34,6 +50,8 @@ export class HomeComponent implements OnInit {
       reader.addEventListener('error', event => {
         reject(event);
       });
+      reader.readAsDataURL(file);
     });
+    return fileValue;
   }
 }
