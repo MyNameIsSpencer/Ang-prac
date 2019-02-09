@@ -1,3 +1,4 @@
+import { WordService } from './../../services/word.service';
 import { Component, OnInit } from '@angular/core';
 import { FileUploader } from 'ng2-file-upload';
 
@@ -15,8 +16,9 @@ export class HomeComponent implements OnInit {
   });
   fileName: string;
   fileTypeError = false;
+  selectedFile: any;
 
-  constructor() { }
+  constructor(private wordService: WordService) { }
 
   ngOnInit() {}
 
@@ -35,7 +37,14 @@ export class HomeComponent implements OnInit {
 
     this.ReadAsBase64(file)
       .then(result => {
-        console.log(result);
+        this.selectedFile = result;
+
+        this.wordService.convertFile(this.selectedFile, this.fileName)
+          .subscribe(data => {
+            console.log(data);
+          }), err => {
+            console.log(err);
+          }
       })
       .catch(err => console.log(err));
   }
