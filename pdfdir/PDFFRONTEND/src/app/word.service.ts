@@ -16,4 +16,10 @@ export class WordService {
       name: fileName
     });
   }
+
+  downloadFile(filename): Observable<any> {
+    return this.http.get(`${URL}/word-to-pdf/${filename}`, {
+      responseType: 'blob'
+    });
+  }
 }

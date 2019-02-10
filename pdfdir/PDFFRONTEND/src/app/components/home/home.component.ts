@@ -1,6 +1,7 @@
 import { WordService } from './../../services/word.service';
 import { Component, OnInit } from '@angular/core';
 import { FileUploader } from 'ng2-file-upload';
+import { saveAs } from 'file-saver';
 
 const URL = 'http://localhost:3001/api/converter/word-to-pdf';
 
@@ -17,8 +18,13 @@ export class HomeComponent implements OnInit {
   fileName: string;
   fileTypeError = false;
   selectedFile: any;
+  isLoading = false;
+  hideDownloadBtn = true;
+  pdfFileName: string;
 
-  constructor(private wordService: WordService) { }
+  constructor(private wordService: WordService) {
+    this.hideDownloadBtn = false;
+  }
 
   ngOnInit() {}
 
@@ -38,12 +44,16 @@ export class HomeComponent implements OnInit {
     this.ReadAsBase64(file)
       .then(result => {
         this.selectedFile = result;
+        this.isLoading = true;
 
         this.wordService.convertFile(this.selectedFile, this.fileName)
           .subscribe(data => {
-            console.log(data);
+            this.isLoading = false;
+            this.hideDownloadBtn = true;
+            this.pdfFileName = data.name;
           }), err => {
             console.log(err);
+            this.isLoading = false;
           }
       })
       .catch(err => console.log(err));
@@ -62,5 +72,14 @@ export class HomeComponent implements OnInit {
       reader.readAsDataURL(file);
     });
     return fileValue;
+  }
+
+  download() {
+    this.wordService.downloadFile(this.pdfFileName).subscribe(
+      data => {
+        saveAs(data, this.pdfFileName);
+      },
+      err => console.log(err)
+    );
   }
 }
