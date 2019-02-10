@@ -20,6 +20,9 @@ module.exports = {
           const data = await word2pdf(`./uploads/${req.body.name}`);
           const fileName = req.body.name.split('.')[0];
           await Helper.writeToFile(res, './converted', `${fileName}.pdf`, data);
+          const filePath = path.join(__dirname, '../uploads') + '/' + req.body.name;
+          await Helper.deleteFile(filePath);
+
 
           return res.status(200).json({ message: 'File converted successfully', name: `${fileName }`.pdf});
         }
@@ -32,5 +35,8 @@ module.exports = {
   async DownloadFile(req, res) {
     const file = path.join(__dirname, '../converted') + '/' + req.params.fileName;
     await res.sendFile(file);
+    setTimeout(() => {
+      await Helper.deleteFile(file);
+    }, 5000)
   }
 };

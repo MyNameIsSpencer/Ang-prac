@@ -10,4 +10,12 @@ module.exports = {
       // err.status(200).json({message: 'File converted to PDF'});
     });
   }
-}
+
+  deleteFile: (path) => {
+    fs.unlink(path, err => {
+      if (err) {
+        console.log(err);
+      }
+    })
+  }
+};

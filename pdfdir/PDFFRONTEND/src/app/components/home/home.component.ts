@@ -21,6 +21,7 @@ export class HomeComponent implements OnInit {
   isLoading = false;
   hideDownloadBtn = true;
   pdfFileName: string;
+  deleteError = false;
 
   constructor(private wordService: WordService) {
     this.hideDownloadBtn = false;
@@ -79,7 +80,11 @@ export class HomeComponent implements OnInit {
       data => {
         saveAs(data, this.pdfFileName);
       },
-      err => console.log(err)
+      err => {
+        if (err.status === 404) {
+          this.deleteError = true;
+        }
+      }
     );
   }
 }
