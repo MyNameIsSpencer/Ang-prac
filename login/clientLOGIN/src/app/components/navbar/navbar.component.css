@@ -1,0 +1,17 @@
+nav {
+  background-color: #64b5f6;
+}
+
+.brand-logo {
+  font-weight: 700;
+  font-size: 30px;
+}
+
+a:hover {
+  background-color: #64b5f6;
+}
+
+li a {
+  font-weight: bold;
+  font-size: 20px;
+}

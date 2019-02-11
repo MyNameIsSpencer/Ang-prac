@@ -1,12 +1,12 @@
 <nav>
   <div class="nav-wrapper">
     <div class="container">
-      <a class="brand-logo" [routerLink]="['']">Logo</a>
+      <a class="brand-logo" [routerLink]="['']">Auth App</a>
       <ul id="nav-mobile" class="right hide-on-med-and-down">
-        <li>
+        <li *ngIf="isLoginRoute">
           <a [routerLink]="['']">Login</a>
         </li>
-        <li>
+        <li *ngIf="!isLoginRoute">
           <a [routerLink]="['/register']">Sign Up</a>
         </li>
       </ul>

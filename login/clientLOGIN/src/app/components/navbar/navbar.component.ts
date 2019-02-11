@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-navbar',
@@ -6,10 +7,14 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./navbar.component.css']
 })
 export class NavbarComponent implements OnInit {
+  isLoginRoute = false;
 
-  constructor() { }
+  constructor(private location: Location) { }
 
   ngOnInit() {
+    if (this.location.path() !== '') {
+      this.isLoginRoute = true;
+    }
   }
 
 }
