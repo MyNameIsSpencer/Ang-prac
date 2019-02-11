@@ -1,0 +1,21 @@
+.container {
+  margin-top: 40px;
+}
+
+#title {
+  color: #64b5f6;
+  padding: 8px;
+  margin-top: 0px;
+  font-weight: 700;
+  text-align: center;
+}
+
+.btn-primary {
+  background-color: #64b5f6;
+  font-weight: bold;
+}
+
+
+.error {
+  color: red;
+}
