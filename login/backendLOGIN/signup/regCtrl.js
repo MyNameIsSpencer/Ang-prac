@@ -1,4 +1,5 @@
 const Joi = require('joi');
+const jwt = require('jsonwebtoken');
 
 const User = require('../models/user');
 
@@ -32,7 +33,10 @@ exports.CreateUser = async (req, res) => {
   };
   User.create(body)
     .then(user => {
-      res.status(201).json({ message: 'User created successfully', user });
+      const token = jwt.sign({data: user}, 'mysecret', {
+        expiresIn: '1h'
+      });
+      res.status(201).json({ message: 'User created successfully', user, token });
     })
     .catch(err => {
       res.status(500).json({ message: err });
