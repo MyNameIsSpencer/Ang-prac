@@ -1,1 +1,1 @@
-exports.CreateUser = (req, res) => {};
+exports.CreateUser = (req, res) => { console.log(req.body); };

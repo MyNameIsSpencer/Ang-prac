@@ -9,7 +9,7 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 export class RegisterComponent implements OnInit {
   regForm: FormGroup;
 
-  constructor(private fb: FormBuilder) {}
+  constructor(private fb: FormBuilder, private authService: AuthService) {}
 
   ngOnInit() {
     this.regForm = this.fb.group({
@@ -20,6 +20,9 @@ export class RegisterComponent implements OnInit {
   }
 
   register() {
-    console.log(this.regForm)
+    this.authService.registerUser(this.regForm.value).subscribe(
+      data => { console.log(data); },
+      err => { console.log(err); }
+    );
   }
 }
