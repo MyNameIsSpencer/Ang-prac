@@ -9,7 +9,11 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 export class RegisterComponent implements OnInit {
   regForm: FormGroup;
 
-  constructor(private fb: FormBuilder, private authService: AuthService) {}
+  constructor(
+    private fb: FormBuilder,
+    private authService: AuthService,
+    private tokenService: tokenService
+  ) {}
 
   ngOnInit() {
     this.regForm = this.fb.group({
@@ -21,6 +25,14 @@ export class RegisterComponent implements OnInit {
 
   register() {
     this.authService.registerUser(this.regForm.value).subscribe(
+      (data: Auth) => {
+        console.log(data.user);
+        this.tokenService.SetToken(data.token);
+        this.regForm.reset();
+        setTimeout(() => {
+          console.log(this.tokenService.GetToken());
+        }, 2000);
+      },
       data => { console.log(data); },
       err => { console.log(err); }
     );
