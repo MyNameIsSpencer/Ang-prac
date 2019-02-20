@@ -1,5 +1,9 @@
+import { Auth } from './../../models/auth-model';
+import { AuthService } from './../../services/auth.service';
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { TokenService } from '../../services/token.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-register',
@@ -12,7 +16,8 @@ export class RegisterComponent implements OnInit {
   constructor(
     private fb: FormBuilder,
     private authService: AuthService,
-    private tokenService: tokenService
+    private tokenService: tokenService,
+    private router: Router
   ) {}
 
   ngOnInit() {
@@ -29,6 +34,9 @@ export class RegisterComponent implements OnInit {
         console.log(data.user);
         this.tokenService.SetToken(data.token);
         this.regForm.reset();
+        setTimeout(() => {
+          this.router.navigate(['/home'])
+        }, 3000);
         setTimeout(() => {
           console.log(this.tokenService.GetToken());
         }, 2000);
