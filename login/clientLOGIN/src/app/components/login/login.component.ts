@@ -9,7 +9,7 @@ import { Component, OnInit } from '@angular/core';
 export class LoginComponent implements OnInit {
   loginForm: FormGroup;
 
-  constructor(private fb: FormBuilder) { }
+  constructor(private fb: FormBuilder, private authService: authService) { }
 
   ngOnInit() {
     this.loginForm = this.fb.group({
@@ -18,5 +18,14 @@ export class LoginComponent implements OnInit {
     });
   }
 
-  login() {}
+  login() {
+    this.authService.loginUser(this.loginForm.value).subscribe(
+      (data: Auth) => {
+        console.log(data);
+      },
+      err => {
+        console.log(err);
+      }
+    );
+  }
 }

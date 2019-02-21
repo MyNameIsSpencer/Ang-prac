@@ -7,6 +7,7 @@ const app = express();
 app.use(cors());
 
 const signup = require('./signup/regRoutes');
+const signin = require('./signin/loginRoutes');
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
@@ -18,6 +19,7 @@ mongoose.connect('mongodb://localhost/loginApp', {
 });
 
 app.use('/api/auth', signup);
+app.use('/api/auth', signin);
 
 app.listen(3000, () => {
   console.log('Server running on port 3000');
