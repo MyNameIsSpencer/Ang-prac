@@ -7,7 +7,7 @@ const app = express();
 app.use(cors());
 
 const signup = require('./signup/regRoutes');
-const signin = require('./signin/loginRoutes');
+const signin = require('./signin/loginRoute');
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
