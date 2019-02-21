@@ -16,7 +16,12 @@ import { HomeComponent } from './components/home/home.component';
 @NgModule({
   declarations: [ AppComponent, LoginComponent, NavbarComponent, RegisterComponent, HomeComponent ],
   imports: [ BrowserModule, AuthRoutingModule, FormsModule, ReactiveFormsModule, HttpClientModule ],
-  providers: [AuthService, TokenService, CookieService],
+  providers: [
+    AuthService,
+    TokenService,
+    CookieService,
+    { provide: HTTP_INTERCEPTORS, userClass: TokenInterceptor, multi: true }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule {}
