@@ -1,4 +1,5 @@
 // import { CommonModule } from '@angular/common';
+import { AuthGuard } from './../guards/auth.guard';
 import { RegisterComponent } from '../components/register/register.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';

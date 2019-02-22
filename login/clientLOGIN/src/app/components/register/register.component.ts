@@ -16,7 +16,7 @@ export class RegisterComponent implements OnInit {
   constructor(
     private fb: FormBuilder,
     private authService: AuthService,
-    private tokenService: tokenService,
+    private tokenService: TokenService,
     private router: Router
   ) {}
 
@@ -32,17 +32,16 @@ export class RegisterComponent implements OnInit {
   register() {
     this.authService.registerUser(this.regForm.value).subscribe(
       (data: Auth) => {
-        console.log(data.user);
+        console.log(data);
         this.tokenService.SetToken(data.token);
         this.regForm.reset();
         setTimeout(() => {
-          this.router.navigate(['/home'])
-        }, 3000);
-        setTimeout(() => {
-          console.log(this.tokenService.GetToken());
+          this.router.navigate(['/home']);
         }, 2000);
+        // setTimeout(() => {
+        //   console.log(this.tokenService.GetToken());
+        // }, 2000);
       },
-      data => { console.log(data); },
       err => { console.log(err); }
     );
   }

@@ -10,7 +10,7 @@ import { TokenService } from './token.service';
 
 @Injectable()
 export class TokenInterceptor implements HttpInterceptor {
-  constructor(private TokenService: TokenService) {}
+  constructor(private tokenService: TokenService) {}
 
   intercept(
     req: HttpRequest<any>, next: HttpHandler
@@ -21,7 +21,7 @@ export class TokenInterceptor implements HttpInterceptor {
     };
     const token = this.tokenService.GetToken();
     if (token) {
-      header['Authorization'] = `bearer ${token}`;
+      headers['Authorization'] = `bearer ${token}`;
     }
     const _req = req.clone({setHeaders: headers})
     return next.handle(_req);

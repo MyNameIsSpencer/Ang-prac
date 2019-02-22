@@ -11,11 +11,11 @@ exports.LoginUser = (req, res) => {
   });
 
   const { error, value } = Joi.validate(req.body, schema);
-  if (error && error.details)
+  if (error && error.details) {
     return res.status(400).json({ msg: error.details });
   }
 
-  User findOne({email: req.body.email})
+  User.findOne({email: req.body.email})
     .then(user => {
       if (!user) {
         return res.status(404).json({ message: 'Email does not exist' });
@@ -26,7 +26,7 @@ exports.LoginUser = (req, res) => {
             return res.status(500).json({ message: 'Password is incorrect' });
           }
           const token = jwt.sign({data: user}, 'mysecret', {
-            expiresIn: '1h'
+            expiresIn: '100000'
           });
           res.status(200).json({ message: 'Login successful', user, token });
         });

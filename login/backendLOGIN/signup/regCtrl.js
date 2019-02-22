@@ -17,13 +17,13 @@ exports.CreateUser = async (req, res) => {
 
   const email = await User.findOne({ email: req.body.email.toLowerCase() });
   if (email) {
-    reutrn res.status(409).json({message: 'User email already exists' });
+    return res.status(409).json({message: 'User email already exists' });
   }
 
 
   const username = await User.findOne({ username: req.body.username.toLowerCase() });
   if (username) {
-    reutrn res.status(409).json({ message: 'Username already exists' });
+    return res.status(409).json({ message: 'Username already exists' });
   }
 
   const body = {

@@ -1,10 +1,11 @@
+import { TokenInterceptor } from './services/interceptor';
 import { TokenService } from './services/token.service';
 import { AuthService } from './services/auth.service';
 import { AuthRoutingModule } from './modules/auth-routing.module';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
 import { LoginComponent } from './components/login/login.component';
@@ -20,7 +21,7 @@ import { HomeComponent } from './components/home/home.component';
     AuthService,
     TokenService,
     CookieService,
-    { provide: HTTP_INTERCEPTORS, userClass: TokenInterceptor, multi: true }
+    { provide: HTTP_INTERCEPTORS, useClass: TokenInterceptor, multi: true }
   ],
   bootstrap: [AppComponent]
 })

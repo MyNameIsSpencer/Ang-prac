@@ -4,13 +4,13 @@
   <div class="row">
     <h1 id="title">Login</h1>
 
-    <form class="col s12" [FormGroup]="loginForm" (ngSubmit)="login()">
+    <form class="col s12" [formGroup]="loginForm" (ngSubmit)="login()">
       <div class="row">
         <div class="input-field col s12">
           <input id="email" type="email" formControlName="email" class="validate">
           <label for="email">Email</label>
+          <!-- <span class="error" *ngIf="loginForm.controls['email'].errors?.email">Email is Required</span> -->
           <span class="error" *ngIf="loginForm.controls['email'].errors?.required && loginForm.controls['email'].touched">Please enter a valid email</span>
-          <span class="error">Email is Required</span>
         </div>
       </div>
 

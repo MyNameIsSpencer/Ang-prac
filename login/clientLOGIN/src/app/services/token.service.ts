@@ -6,7 +6,7 @@ import { Injectable } from '@angular/core';
 })
 
 export class TokenService {
-  consturctor(private cookieService: CookieService) {}
+  constructor(private cookieService: CookieService) {}
 
   SetToken(token) {
     this.cookieService.set('auth-token', token);
