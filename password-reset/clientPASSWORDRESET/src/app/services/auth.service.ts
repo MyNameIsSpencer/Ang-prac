@@ -25,10 +25,11 @@ export class AuthService {
     })
   }
 
-  resetPassword(password, token): Observable<IResetPassword> {
+  resetPassword(password, cpassword, token): Observable<IResetPassword> {
     return this.http.post<IResetPassword>(`${URL}/reset-password/${token}`, {
       password,
-      token
+      cpassword
+      // token   // <<< not necessary to send because already in url as param
     });
   }
 }

@@ -31,7 +31,7 @@ export class ResetPasswordComponent implements OnInit {
 
   reset() {
     // because only need password from value, we add  .password to .value
-    this.authService.resetPassword(this.resetPassword.value.password, this.token)
+    this.authService.resetPassword(this.resetPassword.value.password, this.resetPassword.value.cpassword, this.token)
     // Since this is an observable, we need to subscribe
     .subscribe(data => {
       console.log(data);

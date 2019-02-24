@@ -18,7 +18,17 @@ module.exports = {
         }
       });
 
-      const html = htmlToText.fromString(options.html, {
+      // let transporter = nodemailer.createTransport({
+      //   host: 'smtp.gmail.com',
+      //   port: 465,
+      //   secure: true, // true for 465, false for other exports
+      //   auth: {
+      //     user: 'uzo.odozi@gmail.com',
+      //     pass: 'happiness1'
+      //   }
+      // });
+
+      const htmlText = htmlToText.fromString(options.html, {
         wordwrap: 130
       });
 
