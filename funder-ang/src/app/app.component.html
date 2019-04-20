@@ -1,0 +1,38 @@
+<div class="container">
+  <div class="row">
+    <h2 class="title">
+      Funder App
+    </h2>
+  </div>
+  
+  <div class="row">
+    <form class="form-inline">
+      <div class="form-row">
+        <div class="col-mid-5">
+          <input type="text" name="title" class="form-control" placeholder="Funder Title" autocomplete="off">
+        </div>
+        <div class="col-mid-5">
+          <form class="form-inline">
+            <div class="form-group">
+              <div class="input-group">
+                <input class="form-control" placeholder="Deadline yyyy-mm-dd" name="dp" ngbDatepicker #d="ngbDatepicker" autocomplete="off">
+                <div class="input-group-append">
+                  <button class="btn btn-outline-secondary calendar" (click)="d.toggle()" type="button"></button>
+                </div>
+              </div>
+            </div>
+          </form>
+        </div>
+        <div class="col-mid-2">
+          <button class="btn btn-primary">
+            <i class="fa fa-calendar" aria-hidden="true"></i>
+          </button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
+
+
+
+<!-- [(ngModel)]="model" -->
